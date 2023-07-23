@@ -1,0 +1,388 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --primary-color: #000d83;
+  --secondary-color: #4b5fdc;
+  --tertiary-color: #3ec4ff;
+  --quatenary-color: #f88081;
+}
+
+/* font-family: 'DM Serif Display', serif; */
+
+/* SIGN-IN.HTML START  */
+.signinPage {
+  background-color: #ebeefd;
+}
+
+.sign-in-img {
+  width: 80%;
+  margin-left: 10%;
+}
+
+/* FORM START  */
+.signin-form {
+  margin: auto;
+}
+
+.signin-form-label,
+.form-check-label,
+.forgot-password,
+.account {
+  font-size: 0.8rem;
+}
+
+.check-boxes-div {
+  margin: 5% 0 10%;
+}
+
+.terms-link {
+  text-decoration: none;
+}
+
+.forgot-password {
+  float: right;
+  text-decoration: none;
+}
+
+.account-link {
+  text-decoration: none;
+}
+
+.create-account-button {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 5% 0 0 0;
+  width: 40%;
+}
+
+.button-icons {
+  margin: 0.2rem 0.4rem;
+}
+
+/* FORM END  */
+
+/* start of tablet styles */
+@media screen and (min-width: 767px) {
+  .sign-in-img {
+    width: 70%;
+    margin: 30% 20% 0;
+  }
+
+  .signin-form {
+    width: 90%;
+  }
+}
+
+/* start of pc styles */
+@media screen and (min-width: 991px) {
+  .signin-container {
+    padding: 5%;
+  }
+
+  .sign-in-img {
+    width: 70%;
+    height: 100%;
+    margin: 0 0 0 20%;
+  }
+
+  /* FORM START  */
+  .signin-form {
+    padding-top: 10%;
+    width: 80%;
+    margin: auto;
+  }
+
+  .signin-form-label,
+  .form-check-label,
+  .forgot-password,
+  .account {
+    font-size: 0.8rem;
+  }
+
+  .check-boxes-div {
+    margin: 5% 0 10%;
+  }
+
+  .terms-link {
+    text-decoration: none;
+  }
+
+  .forgot-password {
+    float: right;
+    text-decoration: none;
+  }
+
+  .account-link {
+    text-decoration: none;
+  }
+
+  .create-account-button {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  .button-icons {
+    margin: 0.2rem 0.4rem;
+  }
+
+  /* FORM END  */
+}
+
+/* SIGN-IN.HTML END  */
+
+/* ADMIN.HTML START  */
+.adminIndex {
+  background-color: #ebeefd;
+  font-family: "Poppins", sans-serif;
+  padding: 5%;
+}
+
+.admin-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.admin-card-div.card,
+.admin-card-div0.card {
+  display: inline-block;
+  text-align: center;
+  border-radius: 12px;
+  padding: 10% 0;
+  width: 15rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin: auto;
+}
+
+.admin-card-div.card {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.admin-card-div.card:hover {
+  background-color: white;
+  color: var(--secondary-color);
+}
+
+.admin-second-div {
+  margin: 5% 0 0 0;
+}
+
+.admin-card-div0.card {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.admin-card-div0.card:hover {
+  background-color: white;
+  color: var(--primary-color);
+}
+
+.admin-card-icon {
+  font-size: 3rem;
+}
+
+.admin-card-div-text {
+  margin: 10% 0 0 0;
+  font-weight: 500;
+}
+
+/* BODY END */
+
+/* MEDIA QUERY START  */
+
+/* start of pc styles */
+@media screen and (max-width: 991px) {
+  /* ie it ends at 991px */
+
+  .admin-card-div.card,
+  .admin-card-div0.card {
+    width: 14rem;
+    margin: auto auto auto 5%;
+  }
+}
+
+/* start of medium tablet styles */
+@media screen and (max-width: 767px) {
+  /* ie it ends at 767px */
+
+  .admin-card-div.card,
+  .admin-card-div0.card {
+    width: 15rem;
+  }
+}
+
+/* start of phone styles */
+@media screen and (max-width: 479px) {
+  /* ie it ends at 479px */
+
+  .admin-card-div.card,
+  .admin-card-div0.card {
+    width: 80%;
+    margin: auto 10%;
+  }
+}
+
+/* MEDIA QUERY END  */
+/* ADMIN.HTML END  */
+
+/* ADMIN-ADD-CLASS.HTML START  */
+.addNewCourse {
+  background-color: #ebeefd;
+  font-family: "Poppins", sans-serif;
+  padding: 4% 4% 6%;
+}
+
+.admin-header-text {
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.admin-input-field-div {
+  margin: auto auto 2%;
+}
+
+.admin-form-label {
+  font-size: 0.9rem;
+}
+
+.admin-text-area {
+  height: 6rem;
+}
+
+.btn.add-new-course-button {
+  font-size: 0.9rem;
+  margin: 1% 0 0 1%;
+}
+
+/* start of pc styles */
+@media screen and (max-width: 991px) {
+  /* ie it ends at 991px */
+
+  .btn.add-new-course-button {
+    margin: 3% 0 0 2%;
+  }
+}
+
+/* start of medium tablet styles */
+@media screen and (max-width: 767px) {
+  /* ie it ends at 767px */
+
+  .addNewClass {
+    padding: 5% 1%;
+  }
+
+  .btn.add-new-course-button {
+    margin: 4% 0 0 3%;
+  }
+}
+
+/* start of phone styles */
+@media screen and (max-width: 479px) {
+  /* ie it ends at 479px */
+
+  .addNewClass {
+    padding: 5% 2%;
+  }
+
+  .btn.add-new-course-button {
+    margin: 5% 0 0 4%;
+  }
+}
+
+/* verify agent start  */
+.agent-verification-div {
+  margin: 5% auto;
+}
+
+.new-agent-card {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  width: 18rem;
+  margin: auto;
+}
+
+.agent-card-body {
+  font-size: 1rem;
+  padding: 5%;
+}
+
+.agent-card-button {
+  font-size: 0.8rem;
+}
+
+/* start of medium tablet styles */
+@media screen and (max-width: 767px) {
+  /* ie it ends at 767px */
+
+  .new-agent-card {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    width: 80%;
+    margin: auto;
+  }
+}
+/* verify agent end  */
+
+/* admin see all start */
+.admin-sub-header-text {
+  text-align: center;
+}
+
+.see-all-div {
+  margin: 5% auto;
+}
+
+.see-all-card {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  width: 15rem;
+  margin: auto;
+}
+
+.see-all-card-img {
+  height: 15rem;
+}
+
+.see-all-card-body {
+  font-size: 1rem;
+  padding: 5%;
+}
+
+/* start of pc styles */
+@media screen and (max-width: 991px) {
+  /* ie it ends at 991px */
+
+  .see-all-card {
+    width: 12rem;
+  }
+
+  .see-all-card-img {
+    height: 12rem;
+  }
+}
+
+/* start of medium tablet styles */
+@media screen and (max-width: 767px) {
+  /* ie it ends at 767px */
+
+  .see-all-card {
+    width: 15rem;
+  }
+
+  .see-all-card-img {
+    height: 15rem;
+  }
+}
+
+/* start of phone styles */
+@media screen and (max-width: 479px) {
+  /* ie it ends at 479px */
+
+  .see-all-card {
+    width: 18rem;
+  }
+
+  .see-all-card-img {
+    height: 18rem;
+  }
+}
+/* admin see all end  */
+/* ADMIN-ADD-CLASS.HTML END  */
