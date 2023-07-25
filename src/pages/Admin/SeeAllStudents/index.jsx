@@ -1,39 +1,72 @@
+import StudentCard from "@/Components/StudentCard";
+import Axios from "@/utils/Axios";
+import { getstudent, getstudents } from "@/utils/queries";
+import Cookies from "js-cookie";
 import Image from "next/image";
-import React from "react";
+//import your use effects and usestate
+import React, { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 
-const index = () => {
+const studenturl = "/students";
+const Index = () => {
+  // copy but change according to pagename
+  const [students, setstudents] = useState([]);
+
+  // start copying
+  useEffect(() => {
+    const getstudents = async () => {
+      try {
+        const authToken = Cookies.get("authToken");
+        if (!authToken) {
+          return null;
+        }
+
+        const response = await Axios.get(studenturl, {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        });
+
+        // Assuming the API returns a "data" object in the response, extract it and return
+        const responseData = response.data;
+
+        // set your students state to save the data
+        setstudents(responseData?.data);
+        console.log(students);
+
+        toast.success(responseData?.message);
+      } catch (error) {
+        console.log("Error fetching student data:", error.message);
+        return null;
+      }
+    };
+
+    getstudents();
+  }, []);
+
+  // end copying here
+
   return (
     <section className="addNewCourse">
       <div className="container body-content">
         <p className="admin-header-text">See all Students</p>
-        <p className="admin-sub-header-text">Total number of students: </p>
 
-        <div className="see-all-div">
-          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-            
-            <div className="col see-all-col">
-              <div className="see-all-card">
-                <Image
-                  src=""
-                  className="card-img-top see-all-card-img"
-                  alt=""
-                />
-                <div className="see-all-card-body">
-                  <p className="see-all-card-title">Name</p>
-                  <div class="d-grid">
-                    <button type="button" class="btn btn-outline-danger">
-                      Delete
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
+        <div className="see-all-div flex gap-x-20 mc-auto ">
+          {/* heres where i map the student array fetched */}
+          {/* note this is based on the data gotten */}
+          {students.map((students) => (
+            <StudentCard
+              key={students._id}
+              firstName={students.firstname}
+              lastname={students.lastname}
+              // email={students.email}
+              number={students.number}
+            />
+          ))}
         </div>
       </div>
     </section>
   );
 };
 
-export default index;
+export default Index;

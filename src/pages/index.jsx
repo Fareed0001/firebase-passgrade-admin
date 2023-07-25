@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React from "react";
 import { useState, useRef } from "react";
 import { toast } from "react-hot-toast";
 import { BiLoader } from "react-icons/bi";
@@ -15,6 +14,7 @@ const Index = () => {
   const emailref = useRef();
   const passwordref = useRef();
 
+
   const SubmitHandler = async (event) => {
     event.preventDefault();
     const emaildata = emailref.current.value;
@@ -24,6 +24,7 @@ const Index = () => {
       password: passworddata,
     };
     try {
+      setLoading(true);
       const response = await Axios.post(LOGIN_URL, JSON.stringify(data), {
         headers: {
           "Content-Type": "application/json",
@@ -31,20 +32,18 @@ const Index = () => {
       });
       Cookies.set("authToken", response?.data?.token, { expires: 7 });
       const cookies = Cookies.get("authToken");
-      toast.success("sucessful admin Login ✅");
+
+      toast.success("Successful admin Login ✅");
+
       router.push("/Admin");
       emailref.current.value = "";
       passwordref.current.value = "";
-      setLoading(false);
     } catch (error) {
+      setLoading(false);
       if (!error?.response) {
-        toast.error("No server response");
-      } else if (error.response?.status === 400) {
-        toast.error("Missing username and password");
-      } else if (error.response?.status === 401) {
-        toast.error("unauthorized");
+        toast.error("Error: No server response?");
       } else {
-        toast.error("Login Failed");
+        toast.error(`Error ${error.response?.status}`);
       }
     }
   };
@@ -141,26 +140,3 @@ const Index = () => {
 };
 
 export default Index;
-
-// fetch(Api_Url, requestOptions)
-//   .then((response) => {
-//     if (!response.ok) {
-//       throw new Error("Network response was not ok");
-//     } else {
-//       toast.success("🚀login sucessful");
-//       router.push("/Admin");
-//       setLoading(false);
-//     }
-//     return response.json(); // This is how you access the response data
-//   })
-//   .then((data) => {
-//     // Process the data as needed
-//     console.log("Response data:", data);
-//     // Check the success status if needed
-//   })
-//   .catch((error) => {
-//     // Handle any errors that occurred during the request
-//     console.error("Error:", error.message);
-//     setLoading(false);
-//     toast.error(error.message);
-//   });

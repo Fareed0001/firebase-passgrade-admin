@@ -1,6 +1,10 @@
 import Cookies from "js-cookie";
+
+//hey farid dont do anything here
+
 import axios from "axios";
-import { Config } from "./Config";
+// import { Config } from "./Config";
+import Axios from "./Axios";
 
 export const login = async (Api_Url, data) => {
   const url = `${Config.key.apiBaseUrl}${Api_Url}`;
@@ -20,24 +24,99 @@ export const login = async (Api_Url, data) => {
   }
 };
 
-//     import axios from "axios";
-// import Cookies from "js-cookie";
-// import config from "../utils/config";
-// import BACKEND_URLS from "./urls";
+const studenturl = "/students";
 
-// export const configOptions = () => {
-//   if (typeof window === "undefined") return {};
+export const getstudents = async () => {
+  try {
+    const authToken = Cookies.get("authToken");
+    if (!authToken) {
+      return null;
+    }
 
-//   if (!Cookies.get(config.key.token)) return {};
+    const response = await Axios.get(studenturl, {
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+      },
+    });
 
-//   const accessToken = Cookies.get(config.key.token);
+    // Assuming the API returns a "data" object in the response, extract it and return
+    const responseData = response.data;
+    console.log(responseData);
 
-//   if (accessToken) {
-//     return {
-//       headers: {
-//         Authorization: `Bearer ${accessToken}`,
-//       },
-//     };
-//   }
-//   return {};
-// };
+    return responseData;
+  } catch (error) {
+    console.log("Error fetching student data:", error.message);
+    return null;
+  }
+};
+
+getstudents();
+
+// http://passmark.eu-north-1.elasticbeanstalk.com/api/v1/admin/students
+
+
+
+
+const instructorurl = "/instructors";
+
+export const getinstructors = async () => {
+  try {
+    const authToken = Cookies.get("authToken");
+    if (!authToken) {
+      return null;
+    }
+
+    const response = await Axios.get(instructorurl, {
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+      },
+    });
+
+    // Assuming the API returns a "data" object in the response, extract it and return
+    const responseData = response.data;
+    console.log(responseData);
+
+    return responseData;
+  } catch (error) {
+    console.log("Error fetching instructor data:", error.message);
+    return null;
+  }
+};
+
+getinstructors();
+
+// http://passmark.eu-north-1.elasticbeanstalk.com/api/v1/admin/instructors
+
+
+
+
+
+const courseurl = "/courses";
+
+export const getcourses = async () => {
+  try {
+    const authToken = Cookies.get("authToken");
+    if (!authToken) {
+      return null;
+    }
+
+    const response = await Axios.get(courseurl, {
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+      },
+    });
+
+    // Assuming the API returns a "data" object in the response, extract it and return
+    const responseData = response.data;
+    console.log(responseData);
+
+    return responseData;
+  } catch (error) {
+    console.log("Error fetching instructor data:", error.message);
+    return null;
+  }
+};
+
+getcourses();
+
+// http://passmark.eu-north-1.elasticbeanstalk.com/api/v1/admin/courses

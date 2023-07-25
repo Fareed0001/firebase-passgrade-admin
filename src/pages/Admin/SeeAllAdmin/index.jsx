@@ -5,8 +5,7 @@ const index = () => {
   return (
     <section className="addNewCourse">
       <div className="container body-content">
-        <p className="admin-header-text">See all -----</p>
-        <p className="admin-sub-header-text">Total number of -----: 50</p>
+        <p className="admin-header-text">See all Admins</p>
 
         <div className="see-all-div">
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
