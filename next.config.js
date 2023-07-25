@@ -1,3 +1,6 @@
+output: "export",
+images: {unoptimized: true}
+ie
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
