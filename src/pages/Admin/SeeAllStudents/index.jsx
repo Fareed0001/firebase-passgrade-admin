@@ -8,11 +8,10 @@ import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 
 const studenturl = "/students";
+
 const Index = () => {
-  // copy but change according to pagename
   const [students, setstudents] = useState([]);
 
-  // start copying
   useEffect(() => {
     const getstudents = async () => {
       try {
@@ -34,6 +33,7 @@ const Index = () => {
         setstudents(responseData?.data);
         console.log(students);
 
+
         toast.success(responseData?.message);
       } catch (error) {
         console.log("Error fetching student data:", error.message);
@@ -42,9 +42,7 @@ const Index = () => {
     };
 
     getstudents();
-  }, []);
-
-  // end copying here
+  }, [students]);
 
   return (
     <section className="addNewCourse">
