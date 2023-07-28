@@ -50,7 +50,7 @@ export const getstudents = async () => {
   }
 };
 
-// http://passmark.eu-north-1.elasticbeanstalk.com/api/v1/admin/students
+// https://api.passgrades.com/api/v1/admin/students
 
 const instructorurl = "/instructors";
 
@@ -80,7 +80,7 @@ export const getinstructors = async () => {
 
 getinstructors();
 
-// http://passmark.eu-north-1.elasticbeanstalk.com/api/v1/admin/instructors
+// https://api.passgrades.com/api/v1/admin/instructors
 
 const courseurl = "/courses";
 
@@ -110,7 +110,7 @@ export const getcourses = async () => {
 
 getcourses();
 
-// http://passmark.eu-north-1.elasticbeanstalk.com/api/v1/admin/courses
+// https://api.passgrades.com/api/v1/admin/courses
 
 const agenturl = "/agents";
 
@@ -162,9 +162,9 @@ export const getAdmindata = async () => {
   }
 };
 
-// http://passmark.eu-north-1.elasticbeanstalk.com/api/v1/admin/agents
+// https://api.passgrades.com/api/v1/admin/agents
 
-// http://passmark.eu-north-1.elasticbeanstalk.com/api/v1/admin/instructors/64bee0429f0e8d226dd5a15a/delete
+// https://api.passgrades.com/api/v1/admin/instructors/64bee0429f0e8d226dd5a15a/delete
 
 // export const deleteItem = async (id, deleteItem) => {
 //   try {

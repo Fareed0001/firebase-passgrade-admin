@@ -13,7 +13,7 @@ const InstructorList = ({ instructordata, onDelete }) => {
       }
 
       const response = await Axios.delete(
-        `http://passmark.eu-north-1.elasticbeanstalk.com/api/v1/admin/instructors/${id}/delete`,
+        `https://api.passgrades.com/api/v1/admin/instructors/${id}/delete`,
         {
           headers: {
             Authorization: `Bearer ${authToken}`,
