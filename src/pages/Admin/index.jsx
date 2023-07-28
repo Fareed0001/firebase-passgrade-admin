@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   BiBookAdd,
   BiCheckCircle,
@@ -12,10 +12,24 @@ import {
   BiSolidUserRectangle,
 } from "react-icons/bi";
 import Link from "next/link";
+import { getAdmindata } from "@/utils/queries";
 
-const index = () => {
+const Index = () => {
+  const [AdminData, setAdminData] = useState(null);
+  useEffect(() => {
+    const admins = async () => {
+      const Admin = await getAdmindata();
+
+      setAdminData(Admin);
+    };
+    admins();
+  }, []);
+
   return (
     <section className="adminIndex">
+      <p className="greeting-text">
+        Welcome back {AdminData?.data?.firstname} {AdminData?.data?.lastname}
+      </p>
       <div className="container admin-container">
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
           <Link className="admin-card-link" href="/Admin/AddCourse">
@@ -88,9 +102,7 @@ const index = () => {
             <div className="admin-card-div0 card mb-3">
               <div className="card-body flex items-center justify-center flex-col">
                 <BiUserCheck className="admin-card-icon" />
-                <p className="admin-card-div-text card-text">
-                  See all agents
-                </p>
+                <p className="admin-card-div-text card-text">See all agents</p>
               </div>
             </div>
           </Link>
@@ -110,9 +122,7 @@ const index = () => {
             <div className="admin-card-div0 card mb-3">
               <div className="card-body flex items-center justify-center flex-col">
                 <BiSolidBookContent className="admin-card-icon" />
-                <p className="admin-card-div-text card-text">
-                  See all courses
-                </p>
+                <p className="admin-card-div-text card-text">See all courses</p>
               </div>
             </div>
           </Link>
@@ -127,11 +137,10 @@ const index = () => {
               </div>
             </div>
           </Link>
-
         </div>
       </div>
     </section>
   );
 };
 
-export default index;
+export default Index;

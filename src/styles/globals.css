@@ -137,6 +137,13 @@
   padding: 5%;
 }
 
+.greeting-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  padding: 0 0 3% 4%;
+}
+
 .admin-container {
   display: flex;
   justify-content: space-between;

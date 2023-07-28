@@ -12,15 +12,15 @@ const Index = () => {
   const coursetitleref = useRef(null);
   const courseDescriptionref = useRef(null);
   const studentPriceref = useRef(null);
-  const AgentPriceRef = useRef(null);
+  const agentPriceRef = useRef(null);
   const adddurationref = useRef(null);
 
-  const HandleSubmit = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const title = coursetitleref.current.value;
     const description = courseDescriptionref.current.value;
-    const agent_price = AgentPriceRef.current.value;
+    const agent_price = agentPriceRef.current.value;
     const student_price = studentPriceref.current.value;
     const duration = adddurationref.current.value;
     const cover_image = imageref.current.files[0];
@@ -47,7 +47,7 @@ const Index = () => {
       router.push("/Admin");
       coursetitleref.current.value = "";
       courseDescriptionref.current.value = "";
-      AgentPriceRef.current.value = "";
+      agentPriceRef.current.value = "";
       studentPriceref.current.value = "";
       adddurationref.current.value = "";
     } catch (error) {
@@ -55,12 +55,11 @@ const Index = () => {
     }
   };
 
-
   return (
     <section className="addNewCourse">
       <div className="container new-course-container">
         <p className="admin-header-text">Add a new course</p>
-        <form onSubmit={HandleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className="row container">
             <div className="admin-input-field-div col-12 col-lg-6">
               <label htmlFor="coverImage" className="form-label admin-form-label">
@@ -127,7 +126,7 @@ const Index = () => {
               <div className="input-group">
                 <span className="input-group-text">₦</span>
                 <input
-                  ref={AgentPriceRef}
+                  ref={agentPriceRef}
                   id="agentPrice"
                   type="number"
                   className="form-control"

@@ -50,12 +50,7 @@ export const getstudents = async () => {
   }
 };
 
-getstudents();
-
 // http://passmark.eu-north-1.elasticbeanstalk.com/api/v1/admin/students
-
-
-
 
 const instructorurl = "/instructors";
 
@@ -87,10 +82,6 @@ getinstructors();
 
 // http://passmark.eu-north-1.elasticbeanstalk.com/api/v1/admin/instructors
 
-
-
-
-
 const courseurl = "/courses";
 
 export const getcourses = async () => {
@@ -120,3 +111,74 @@ export const getcourses = async () => {
 getcourses();
 
 // http://passmark.eu-north-1.elasticbeanstalk.com/api/v1/admin/courses
+
+const agenturl = "/agents";
+
+export const getagents = async () => {
+  try {
+    const authToken = Cookies.get("authToken");
+    if (!authToken) {
+      return null;
+    }
+
+    const response = await Axios.get(agenturl, {
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+      },
+    });
+
+    // Assuming the API returns a "data" object in the response, extract it and return
+    const responseData = response.data;
+    console.log(responseData);
+
+    return responseData;
+  } catch (error) {
+    console.log("Error fetching agent data:", error.message);
+    return null;
+  }
+};
+
+const adminurl = "/userdata";
+export const getAdmindata = async () => {
+  try {
+    const authToken = Cookies.get("authToken");
+    if (!authToken) {
+      return null;
+    }
+
+    const response = await Axios.get(adminurl, {
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+      },
+    });
+
+    // Assuming the API returns a "data" object in the response, extract it and return
+    const responseData = response.data;
+
+    return responseData;
+  } catch (error) {
+    console.log("Error fetching agent data:", error.message);
+    return null;
+  }
+};
+
+// http://passmark.eu-north-1.elasticbeanstalk.com/api/v1/admin/agents
+
+// http://passmark.eu-north-1.elasticbeanstalk.com/api/v1/admin/instructors/64bee0429f0e8d226dd5a15a/delete
+
+// export const deleteItem = async (id, deleteItem) => {
+//   try {
+//     const authToken = Cookies.get("authToken");
+//     if (!authToken) {
+//       return null;
+//     }
+//     const response = await Axios.delete(`instructors/${id}/delete`, {
+//       headers: {
+//         Authorization: `Bearer ${authToken}`,
+//       },
+//     });
+
+//     const responseData = response.data;
+//     return responseData;
+//   } catch (error) {}
+// };

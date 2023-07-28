@@ -3,7 +3,7 @@ import React from "react";
 
 const index = () => {
   return (
-    <section className="addNewCourse">
+    <section className="bg-[#ebeefd] py-20 ">
       <div className="container body-content">
         <p className="admin-header-text">See all Admins</p>
 

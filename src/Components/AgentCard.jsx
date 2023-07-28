@@ -1,10 +1,11 @@
 import React from "react";
 
-const StudentCard = ({
+const AgentCard = ({
   firstName,
   lastname,
   email,
   phone,
+  company,
   photo,
   id,
   onDelete,
@@ -17,7 +18,7 @@ const StudentCard = ({
       <div className="see-all-card">
         <img
           src={photo}
-          alt="Yet to update Image"
+          alt="Yet to update image"
           className="card-img-top see-all-card-img"
         />
 
@@ -28,13 +29,14 @@ const StudentCard = ({
           </p>
           <p className="see-all-card-title">{email}</p>
           <p className="see-all-card-title">{phone}</p>
+          <p className="see-all-card-title">{company}</p>
           <div class="d-grid">
             <button
+              type="button"
+              class="btn btn-outline-danger"
               onClick={() => {
                 HandleDelete(id);
               }}
-              type="button"
-              class="btn btn-outline-danger"
             >
               Delete
             </button>
@@ -45,4 +47,4 @@ const StudentCard = ({
   );
 };
 
-export default StudentCard;
+export default AgentCard;
