@@ -340,17 +340,25 @@
 
 .see-all-card {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  width: 15rem;
+  width: 100%;
   margin: auto;
 }
 
 .see-all-card-img {
-  height: 15rem;
+  max-width: 100%; /* Set a maximum width */
+  height: 5rem; /* Allow the height to adjust proportionally */
 }
 
 .see-all-card-body {
   font-size: 1rem;
   padding: 5%;
+}
+
+.see-all-card-title {
+  max-width: 80%; /* Set a maximum width */
+  overflow-wrap: break-word; /* Allow words to break and wrap */
+  margin: auto;
+  font-size: .9rem;
 }
 
 /* start of pc styles */

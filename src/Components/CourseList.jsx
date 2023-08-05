@@ -30,7 +30,7 @@ const CourseList = ({ coursesdata, onDelete }) => {
     } catch (error) {}
   };
   return (
-    <ul className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+    <ul className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4">
       {coursesdata.map((course) => (
         <CourseCard
           onDelete={(id) => {

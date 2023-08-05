@@ -6,7 +6,7 @@ const CourseCard = ({ cover_image, title, id, onDelete }) => {
   };
 
   return (
-    <div className="col see-all-col">
+    <div className="col see-all-col h-full">
       <div className="see-all-card">
         <img
           src={cover_image} // Make sure the cover_image is the correct URL for the image
