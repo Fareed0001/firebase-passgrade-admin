@@ -4,7 +4,7 @@ const index = () => {
   return (
     <section className="addNewCourse">
       <div className="container body-content">
-        <p className="admin-header-text">Schedule an online className</p>
+        <p className="admin-header-text">Schedule an online class</p>
         <form action="">
           <div className="row container">
             <div className="input-field-div col-12 col-lg-6">
@@ -72,7 +72,7 @@ const index = () => {
             className="btn btn-primary add-new-course-button"
             type="submit"
           >
-            Add new class
+            Send message
           </button>
         </form>
       </div>

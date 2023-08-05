@@ -8,26 +8,26 @@ const index = () => {
         <form action="">
           <div className="row container">
             <div className="input-field-div col-12 col-lg-6">
-              <label htmlFor="meetingIdNumber" className="form-label admin-form-label">
-                Meeting id number
+              <label htmlFor="meetingLink" className="form-label tutor-form-label">
+                Meeting link
               </label>
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter meeting id number"
-                id="meetingIdNumber"
+                placeholder="Enter meeting link"
+                id="meetingLink"
               />
             </div>
 
             <div className="input-field-div col-12 col-lg-6">
-              <label htmlFor="meetingPassword" className="form-label admin-form-label">
-                Meeting password
+              <label htmlFor="meetingTitle" className="form-label tutor-form-label">
+                Meeting title
               </label>
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter meeting password"
-                id="meetingPassword"
+                placeholder="Enter meeting title"
+                id="meetingTitle"
               />
             </div>
 
