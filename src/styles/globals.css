@@ -361,43 +361,22 @@
   font-size: .9rem;
 }
 
-/* start of pc styles */
+/* start of pc styles 
 @media screen and (max-width: 991px) {
-  /* ie it ends at 991px */
+  /* ie it ends at 991px 
 
-  .see-all-card {
-    width: 12rem;
-  }
 
-  .see-all-card-img {
-    height: 12rem;
-  }
-}
+}*/
 
-/* start of medium tablet styles */
+/* start of medium tablet styles
 @media screen and (max-width: 767px) {
-  /* ie it ends at 767px */
+  /* ie it ends at 767px 
 
-  .see-all-card {
-    width: 15rem;
-  }
+} */
 
-  .see-all-card-img {
-    height: 15rem;
-  }
-}
-
-/* start of phone styles */
+/* start of phone styles 
 @media screen and (max-width: 479px) {
-  /* ie it ends at 479px */
-
-  .see-all-card {
-    width: 18rem;
-  }
-
-  .see-all-card-img {
-    height: 18rem;
-  }
-}
+  /* ie it ends at 479px 
+}*/
 /* admin see all end  */
 /* ADMIN-ADD-CLASS.HTML END  */
