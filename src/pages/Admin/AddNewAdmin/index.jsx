@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import { toast } from "react-hot-toast";
 
-const InstructorUrl = "/create/instructor";
+const AdminUrl = "/create";
 
 const Index = () => {
   const router = useRouter();
@@ -12,8 +12,6 @@ const Index = () => {
   const instLastnameref = useRef(null);
   const instEmailref = useRef(null);
   const instPasswordref = useRef(null);
-  // Temi this line is to create the reference for the file input
-  const coverImageRef = useRef(null); 
 
   const submitHandler = async (event) => {
     event.preventDefault();
@@ -21,31 +19,27 @@ const Index = () => {
     const lastname = instLastnameref.current.value;
     const email = instEmailref.current.value;
     const password = instPasswordref.current.value;
-    // and this one is to get the selected image file
-    const photo = coverImageRef.current.files[0]; 
-    
-    const formdata = new FormData();
-    formdata.append("firstname", firstname);
-    formdata.append("lastname", lastname);
-    formdata.append("email", password);
-    formdata.append("email", password);
-    // then append the selected image with the key 'photo'
-    formdata.append("photo", photo); 
 
+    const adminData = {
+      firstname,
+      lastname,
+      email,
+      password,
+    };
 
     try {
-      const response = await Axios.post(InstructorUrl, formdata, {
+      const response = await Axios.post(AdminUrl, adminData, {
         headers: {
-          "Content-Type": "multipart/form-data",
+          "Content-Type": "application/json",
           Authorization: `Bearer ${Cookies.get("authToken")}`,
         },
       });
-      router.push("/Admin");
+      router.push("/Admin"); // Make sure this path is correct
       instLastnameref.current.value = "";
       instFirstnameref.current.value = "";
       instEmailref.current.value = "";
       instPasswordref.current.value = "";
-      toast.success("Instructor created successfully");
+      toast.success("Admin created successfully");
     } catch (error) {
       toast.error(error.message);
     }
@@ -54,74 +48,59 @@ const Index = () => {
   return (
     <section className="addNewCourse">
       <div className="container body-content">
-        <p className="admin-header-text">Add a new instructor</p>
+        <p className="admin-header-text">Create an admin</p>
         <form onSubmit={submitHandler}>
           <div className="row container">
-            <div className="input-field-div col-12 col-lg-12">
-              <label
-                htmlFor="coverImage"
-                className="form-label admin-form-label"
-              >
-                Instructors profile picture
-              </label>
-              <input
-                ref={coverImageRef}
-                className="form-control"
-                type="file"
-                id="coverImage"
-                accept="image/*"
-              />
-            </div>
 
             <div className="input-field-div col-12 col-md-6 col-lg-6">
               <label
-                htmlFor="instructorFname"
+                htmlFor="adminFname"
                 className="form-label admin-form-label"
               >
-                Instructors first name
+                First name
               </label>
               <input
                 ref={instFirstnameref}
                 type="text"
                 className="form-control"
-                placeholder="Enter instructor's first name"
-                id="instructorFname"
+                placeholder="Enter admin's first name"
+                id="adminFname"
               />
             </div>
 
             <div className="input-field-div col-12 col-md-6 col-lg-6">
               <label
-                htmlFor="instructorLname"
+                htmlFor="adminLname"
                 className="form-label admin-form-label"
               >
-                Instructors last name
+                Last name
               </label>
               <input
                 ref={instLastnameref}
                 type="text"
                 className="form-control"
-                placeholder="Enter instructor's last name"
-                id="instructorLname"
+                placeholder="Enter admin's last name"
+                id="adminLname"
               />
             </div>
             <div className="input-field-div col-12 col-md-6 col-lg-6">
               <label
-                htmlFor="instructorEmail"
+                htmlFor="adminEmail"
                 className="form-label admin-form-label"
               >
-                Instructors Email
+                Email
               </label>
               <input
                 ref={instEmailref}
                 type="email"
                 className="form-control"
-                placeholder="Enter instructor's Email"
-                id="instructorEmail"
+                placeholder="Enter admin's Email"
+                id="adminEmail"
               />
             </div>
             <div className="input-field-div col-12 col-md-6 col-lg-6">
               <label
-                htmlFor="instructorPassword"
+                htmlFor="adminPassword"
                 className="form-label admin-form-label"
               >
                 Password
@@ -130,8 +109,8 @@ const Index = () => {
                 ref={instPasswordref}
                 type="password"
                 className="form-control"
-                placeholder="Enter instructor's password"
-                id="instructorPassword"
+                placeholder="Enter admin's password"
+                id="adminPassword"
               />
             </div>
           </div>
@@ -139,7 +118,7 @@ const Index = () => {
             className="btn btn-primary  add-new-course-button"
             type="submit"
           >
-            Add new instructor
+            Create admin
           </button>
         </form>
       </div>

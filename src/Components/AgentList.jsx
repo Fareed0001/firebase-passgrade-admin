@@ -1,7 +1,6 @@
 import React from "react";
 import Cookies from "js-cookie";
 import Axios from "@/utils/Axios";
-import CourseCard from "./CourseCard";
 import AgentCard from "./AgentCard";
 
 const AgentList = ({ Agentdata, onDelete }) => {

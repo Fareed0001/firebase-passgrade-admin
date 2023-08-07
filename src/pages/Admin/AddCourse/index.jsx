@@ -102,46 +102,156 @@ const Index = () => {
               ></textarea>
             </div>
 
-            <div className="input-field-div col-12 col-lg-6">
-              <label htmlFor="studentPrice" className="form-label admin-form-label">
-                Student price
-              </label>
-              <div className="input-group">
-                <span className="input-group-text">₦</span>
-                <input
-                  ref={studentPriceref}
-                  id="studentPrice"
-                  type="number"
-                  className="form-control"
-                  aria-label="Amount (to the nearest naira)"
-                />
-                <span className="input-group-text">.00</span>
+            <div className="naira-price col-sm-6 col-md-4 col-lg-3">
+              <div className="input-field-div col">
+                <label htmlFor="studentPrice" className="form-label admin-form-label">
+                  Student price
+                </label>
+                <div className="input-group">
+                  <span className="input-group-text">₦</span>
+                  <input
+                    ref={studentPriceref}
+                    id="studentPrice"
+                    type="number"
+                    className="form-control"
+                    aria-label="Amount (to the nearest naira)"
+                  />
+                  <span className="input-group-text">.00</span>
+                </div>
+              </div>
+
+              <div className="input-field-div col">
+                <label htmlFor="agentPrice" className="form-label admin-form-label">
+                  Agent price
+                </label>
+                <div className="input-group">
+                  <span className="input-group-text">₦</span>
+                  <input
+                    ref={agentPriceRef}
+                    id="agentPrice"
+                    type="number"
+                    className="form-control"
+                    aria-label="Amount (to the nearest naira)"
+                  />
+                  <span className="input-group-text">.00</span>
+                </div>
               </div>
             </div>
 
-            <div className="input-field-div col-12 col-lg-6">
-              <label htmlFor="agentPrice" className="form-label admin-form-label">
-                Agent price
-              </label>
-              <div className="input-group">
-                <span className="input-group-text">₦</span>
-                <input
-                  ref={agentPriceRef}
-                  id="agentPrice"
-                  type="number"
-                  className="form-control"
-                  aria-label="Amount (to the nearest dollar)"
-                />
-                <span className="input-group-text">.00</span>
+            <div className="dollar-price col-sm-6 col-md-4 col-lg-3">
+              <div className="input-field-div col">
+                <label htmlFor="studentPrice" className="form-label admin-form-label">
+                  Student price
+                </label>
+                <div className="input-group">
+                  <span className="input-group-text">$</span>
+                  <input
+                    ref={studentPriceref}
+                    id="studentPrice"
+                    type="number"
+                    className="form-control"
+                    aria-label="Amount (to the nearest dollar)"
+                  />
+                  <span className="input-group-text">.00</span>
+                </div>
+              </div>
+
+              <div className="input-field-div col">
+                <label htmlFor="agentPrice" className="form-label admin-form-label">
+                  Agent price
+                </label>
+                <div className="input-group">
+                  <span className="input-group-text">$</span>
+                  <input
+                    ref={agentPriceRef}
+                    id="agentPrice"
+                    type="number"
+                    className="form-control"
+                    aria-label="Amount (to the nearest dollar)"
+                  />
+                  <span className="input-group-text">.00</span>
+                </div>
               </div>
             </div>
 
-            <div className="input-field-div col-lg-12">
+            <div className="pounds-price col-sm-6 col-md-4 col-lg-3">
+              <div className="input-field-div col">
+                <label htmlFor="studentPrice" className="form-label admin-form-label">
+                  Student price
+                </label>
+                <div className="input-group">
+                  <span className="input-group-text">£</span>
+                  <input
+                    ref={studentPriceref}
+                    id="studentPrice"
+                    type="number"
+                    className="form-control"
+                    aria-label="Amount (to the nearest pounds)"
+                  />
+                  <span className="input-group-text">.00</span>
+                </div>
+              </div>
+
+              <div className="input-field-div col">
+                <label htmlFor="agentPrice" className="form-label admin-form-label">
+                  Agent price
+                </label>
+                <div className="input-group">
+                  <span className="input-group-text">£</span>
+                  <input
+                    ref={agentPriceRef}
+                    id="agentPrice"
+                    type="number"
+                    className="form-control"
+                    aria-label="Amount (to the nearest pounds)"
+                  />
+                  <span className="input-group-text">.00</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="euros-price col-sm-6 col-md-4 col-lg-3">
+              <div className="input-field-div col">
+                <label htmlFor="studentPrice" className="form-label admin-form-label">
+                  Student price
+                </label>
+                <div className="input-group">
+                  <span className="input-group-text">€</span>
+                  <input
+                    ref={studentPriceref}
+                    id="studentPrice"
+                    type="number"
+                    className="form-control"
+                    aria-label="Amount (to the nearest euros)"
+                  />
+                  <span className="input-group-text">.00</span>
+                </div>
+              </div>
+
+              <div className="input-field-div col">
+                <label htmlFor="agentPrice" className="form-label admin-form-label">
+                  Agent price
+                </label>
+                <div className="input-group">
+                  <span className="input-group-text">€</span>
+                  <input
+                    ref={agentPriceRef}
+                    id="agentPrice"
+                    type="number"
+                    className="form-control"
+                    aria-label="Amount (to the nearest euros)"
+                  />
+                  <span className="input-group-text">.00</span>
+                </div>
+              </div>
+            </div>
+          
+            <div className="input-field-div col-12">
               <label
                 htmlFor="classDuration"
                 className="form-label admin-form-label"
               >
-                Class duration in days
+                Course duration in days
               </label>
               <input
                 ref={adddurationref}
@@ -151,6 +261,21 @@ const Index = () => {
                 id="classDuration"
               />
             </div>
+
+            <div className="input-field-div col-lg-12">
+              <label
+                htmlFor="courseMessage"
+                className="form-label admin-form-label"
+              >
+                Message to student who purchased this course
+              </label>
+              <textarea
+                className="form-control admin-text-area"
+                placeholder="Enter the message you want the student to get in his dashboard after he buys this course"
+                id="courseDescription"
+              ></textarea>
+            </div>
+
           </div>
           <button className="btn btn-primary add-new-course-button" type="submit">
             Add new course

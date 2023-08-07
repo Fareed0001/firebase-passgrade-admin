@@ -11,18 +11,25 @@ import {
   BiSolidBookContent,
   BiSolidUserRectangle,
 } from "react-icons/bi";
+import { RiAdminFill, RiAdminLine, RiMessage2Fill, RiMessage3Fill } from "react-icons/ri"; // Correct import
+
 import Link from "next/link";
 import { getAdmindata } from "@/utils/queries";
 
 const Index = () => {
   const [AdminData, setAdminData] = useState(null);
-  useEffect(() => {
-    const admins = async () => {
-      const Admin = await getAdmindata();
 
-      setAdminData(Admin);
+  useEffect(() => {
+    const fetchAdmins = async () => {
+      try {
+        const adminData = await getAdmindata();
+        setAdminData(adminData);
+      } catch (error) {
+        console.log("Error fetching admin data:", error.message);
+      }
     };
-    admins();
+
+    fetchAdmins();
   }, []);
 
   return (
@@ -32,6 +39,18 @@ const Index = () => {
       </p>
       <div className="container admin-container">
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+
+          <Link className="admin-card-link" href="Admin/AddNewAdmin">
+            <div className="admin-card-div card mb-3">
+              <div className="card-body flex items-center justify-center flex-col">
+                <RiAdminFill className="admin-card-icon" />
+                <p className="admin-card-div-text card-text">
+                  Create an admin
+                </p>
+              </div>
+            </div>
+          </Link>
+
           <Link className="admin-card-link" href="/Admin/AddCourse">
             <div className="admin-card-div card mb-3">
               <div className="card-body flex items-center justify-center flex-col">
@@ -82,6 +101,17 @@ const Index = () => {
               </div>
             </div>
           </Link>
+
+          <Link className="admin-card-link" href="Admin/SendMessage">
+            <div className="admin-card-div card mb-3">
+              <div className="card-body flex items-center justify-center flex-col">
+                <RiMessage2Fill className="admin-card-icon" />
+                <p className="admin-card-div-text card-text">
+                  Send bulk message
+                </p>
+              </div>
+            </div>
+          </Link>
         </div>
       </div>
 
@@ -94,6 +124,15 @@ const Index = () => {
                 <p className="admin-card-div-text card-text">
                   Start online class
                 </p>
+              </div>
+            </div>
+          </Link>
+
+          <Link className="admin-card-link" href="/Admin/SeeAllAdmins">
+            <div className="admin-card-div0 card mb-3">
+              <div className="card-body flex items-center justify-center flex-col">
+                <RiAdminLine className="admin-card-icon" />
+                <p className="admin-card-div-text card-text">See all admins</p>
               </div>
             </div>
           </Link>
@@ -133,6 +172,17 @@ const Index = () => {
                 <BiSolidUserRectangle className="admin-card-icon" />
                 <p className="admin-card-div-text card-text">
                   See all students
+                </p>
+              </div>
+            </div>
+          </Link>
+
+          <Link className="admin-card-link" href="/Admin/RecieveMessage">
+            <div className="admin-card-div0 card mb-3">
+              <div className="card-body flex items-center justify-center flex-col">
+                <RiMessage3Fill className="admin-card-icon" />
+                <p className="admin-card-div-text card-text">
+                  Recieved messages
                 </p>
               </div>
             </div>

@@ -257,6 +257,10 @@
   height: 6rem;
 }
 
+.input-field-div {
+  margin: 1% auto;
+}
+
 .btn.add-new-course-button {
   font-size: 0.9rem;
   margin: 1% 0 0 1%;
