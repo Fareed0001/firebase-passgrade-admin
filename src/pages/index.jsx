@@ -60,6 +60,7 @@ const Index = () => {
                 height={30}
                 width={40}
                 className="mx-2"
+                priority
               />
               PassGrades
             </span>
