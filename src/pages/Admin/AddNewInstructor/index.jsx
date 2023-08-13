@@ -27,8 +27,8 @@ const Index = () => {
     const formdata = new FormData();
     formdata.append("firstname", firstname);
     formdata.append("lastname", lastname);
-    formdata.append("email", password);
-    formdata.append("email", password);
+    formdata.append("email", email);
+    formdata.append("password", password);
     // then append the selected image with the key 'photo'
     formdata.append("photo", photo); 
 

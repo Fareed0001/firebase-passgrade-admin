@@ -101,9 +101,20 @@ const Index = () => {
                 className="form-control"
                 type="file"
                 id="classPDF"
-                accept="application/pdf, application/vnd.ms-excel, application/epub, application/mobi, application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,
-                        text/plain, application/pdf, image/*"
+                accept="
+                  application/pdf,
+                  application/vnd.ms-excel,
+                  application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,  
+                  application/msword,
+                  application/vnd.openxmlformats-officedocument.wordprocessingml.document, 
+                  application/vnd.ms-powerpoint,
+                  application/vnd.openxmlformats-officedocument.presentationml.presentation,
+                  text/plain,
+                  application/epub,
+                  application/mobi,
+                  image/*"
               />
+
             </div>
 
             <div className="input-field-div col-12 col-lg-6">
