@@ -44,7 +44,7 @@ const Index = () => {
     });
   };
   return (
-    <section className="addNewCourse h-screen">
+    <section className="addNewCourse bg-[#ebeefd] h-full w-full overflow-auto">
       <div className="container body-content">
         <p className="admin-header-text">See all Students</p>
 
