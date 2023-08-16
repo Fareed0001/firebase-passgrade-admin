@@ -11,11 +11,13 @@ const index = () => {
           {/* <!-- NEW AGENT CARD START  --> */}
           <div class="row row-cols-1 row-cols-md-2  row-cols-lg-3 g-4">
 
-            {/* <div class="col agent-col">
+            <div class="col agent-col">
               <div class="new-agent-card">
-                <Image src="" class="card-img-top courses-card-img" alt="sat" />
                 <div class="agent-card-body">
-                  <p class="agent-card-title">Temitope David</p>
+                <p class="agent-card-title">firstname lastname</p>
+                <p class="agent-card-title">email</p>
+                  <p class="agent-card-title">phone number</p>
+                  <p class="agent-card-title">company</p>
                   <div class="row">
                     <div class="col-6 d-grid">
                       <button
@@ -36,7 +38,7 @@ const index = () => {
                   </div>
                 </div>
               </div>
-            </div> */}
+            </div>
 
           </div>
         </div>
