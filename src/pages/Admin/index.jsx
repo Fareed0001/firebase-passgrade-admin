@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { getadmins } from "@/utils/queries"; // Import the correct function name
 import {
   BiBookAdd,
   BiCheckCircle,
@@ -11,10 +12,8 @@ import {
   BiSolidBookContent,
   BiSolidUserRectangle,
 } from "react-icons/bi";
-import { RiAdminFill, RiAdminLine, RiMessage2Fill, RiMessage3Fill } from "react-icons/ri"; // Correct import
-
+import { RiAdminFill, RiAdminLine, RiMessage2Fill, RiMessage3Fill } from "react-icons/ri";
 import Link from "next/link";
-import { getAdmindata } from "@/utils/queries";
 
 const Index = () => {
   const [AdminData, setAdminData] = useState(null);
@@ -22,7 +21,7 @@ const Index = () => {
   useEffect(() => {
     const fetchAdmins = async () => {
       try {
-        const adminData = await getAdmindata();
+        const adminData = await getadmins(); // Use the correct function name here
         setAdminData(adminData);
       } catch (error) {
         console.log("Error fetching admin data:", error.message);
@@ -34,9 +33,12 @@ const Index = () => {
 
   return (
     <section className="adminIndex">
-      <p className="greeting-text">
-        Welcome back {AdminData?.data?.firstname} {AdminData?.data?.lastname}
-      </p>
+      {AdminData && (
+        <p className="greeting-text">
+          Welcome back {AdminData?.data?.firstname} {AdminData?.data?.lastname}
+        </p>
+      )}
+
       <div className="container admin-container">
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
 
