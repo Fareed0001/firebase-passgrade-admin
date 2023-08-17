@@ -17,7 +17,7 @@ export const login = async (Api_Url, data) => {
     });
     const token = response.data.token;
     Cookies.set("authToken", token, { expires: 7 });
-    console.log(response);
+
     return response;
   } catch (error) {
     console.log(error.message);
@@ -41,7 +41,6 @@ export const getstudents = async () => {
 
     // Assuming the API returns a "data" object in the response, extract it and return
     const responseData = response.data;
-    console.log(responseData);
 
     return responseData;
   } catch (error) {
@@ -50,12 +49,9 @@ export const getstudents = async () => {
   }
 };
 // https://api.passgrades.com/api/v1/admin/students
-// FOR STUDENTS END 
+// FOR STUDENTS END
 
-
-
-
-// FOR INSTRUCTORS START 
+// FOR INSTRUCTORS START
 const instructorurl = "/instructors";
 export const getinstructors = async () => {
   try {
@@ -72,7 +68,6 @@ export const getinstructors = async () => {
 
     // Assuming the API returns a "data" object in the response, extract it and return
     const responseData = response.data;
-    console.log(responseData);
 
     return responseData;
   } catch (error) {
@@ -82,13 +77,9 @@ export const getinstructors = async () => {
 };
 getinstructors();
 // https://api.passgrades.com/api/v1/admin/instructors
-// FOR INSTRUCTORS END 
+// FOR INSTRUCTORS END
 
-
-
-
-
-// FOR COURSES START 
+// FOR COURSES START
 const courseurl = "/courses";
 export const getcourses = async () => {
   try {
@@ -105,7 +96,6 @@ export const getcourses = async () => {
 
     // Assuming the API returns a "data" object in the response, extract it and return
     const responseData = response.data;
-    console.log(responseData);
 
     return responseData;
   } catch (error) {
@@ -115,12 +105,9 @@ export const getcourses = async () => {
 };
 getcourses();
 // https://api.passgrades.com/api/v1/admin/courses
-// FOR COURSES END 
+// FOR COURSES END
 
-
-
-
-// GET AGENTS START 
+// GET AGENTS START
 const agenturl = "/agents";
 export const getagents = async () => {
   try {
@@ -146,12 +133,9 @@ export const getagents = async () => {
   }
 };
 // https://api.passgrades.com/api/v1/admin/agents
-// GET AGENTS END 
+// GET AGENTS END
 
-
-
-
-// GET ADMIN START 
+// GET ADMIN START
 const adminurl = "/userdata";
 export const getadmins = async () => {
   try {
@@ -176,28 +160,49 @@ export const getadmins = async () => {
     return null;
   }
 };
-// GET ADMIN END 
 
+const baseurl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
+export async function Approve(agentId) {
+  try {
+    const response = await fetch(`${baseurl}/agents/${agentId}/approve`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${Cookies.get("authToken")}`,
+        "Content-Type": "application/json",
+      },
+    });
 
+    if (!response.ok) {
+      throw new Error("Failed to approve agent");
+    }
 
+    const agentData = await response.json();
+    console.log(agentData);
+    return agentData;
+  } catch (error) {
+    console.error("Error:", error.message);
+  }
+}
 
+export async function Reject(agentId) {
+  try {
+    const response = await fetch(`${baseurl}/agents/${agentId}/reject`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${Cookies.get("authToken")}`,
+        "Content-Type": "application/json",
+      },
+    });
 
-// https://api.passgrades.com/api/v1/admin/instructors/64bee0429f0e8d226dd5a15a/delete
+    if (!response.ok) {
+      throw new Error("Failed to reject agent");
+    }
 
-// export const deleteItem = async (id, deleteItem) => {
-//   try {
-//     const authToken = Cookies.get("authToken");
-//     if (!authToken) {
-//       return null;
-//     }
-//     const response = await Axios.delete(`instructors/${id}/delete`, {
-//       headers: {
-//         Authorization: `Bearer ${authToken}`,
-//       },
-//     });
-
-//     const responseData = response.data;
-//     return responseData;
-//   } catch (error) {}
-// };
+    const agentData = await response.json();
+    console.log(agentData);
+    return agentData;
+  } catch (error) {
+    console.error("Error:", error.message);
+  }
+}
