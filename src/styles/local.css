@@ -1,0 +1,27 @@
+/* STATUS SYTLE */
+
+/* Add these styles to your CSS file */
+.status-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: fit-content;
+  }
+  
+  .status-approved {
+    background-color: green;
+    color: white;
+  }
+  
+  .status-pending {
+    background-color: orange;
+    color: white;
+  }
+  
+  .chan{
+    background-color: red;
+  }
