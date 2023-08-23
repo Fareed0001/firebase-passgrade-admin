@@ -12,16 +12,22 @@
     width: fit-content;
   }
   
-  .status-approved {
-    background-color: green;
-    color: white;
-  }
-  
   .status-pending {
     background-color: orange;
     color: white;
   }
-  
+  .status-approved {
+    background-color: green;
+    color: white;
+    width: 200px
+  }
   .chan{
     background-color: red;
   }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  

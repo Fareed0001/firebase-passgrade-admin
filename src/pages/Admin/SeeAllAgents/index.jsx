@@ -12,6 +12,7 @@ import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { BiLoader } from "react-icons/bi";
 import { FaTrash } from 'react-icons/fa';
+import Container from "@/SharedComponents/Container";
 
 const agenturl = "/agents";
 
@@ -19,7 +20,7 @@ const Index = () => {
   const [Loading, setLoading] = useState(false);
   const [agents, setAgents] = useState([]);
 
-
+console.log(agents, 'aa')
   useEffect(() => {
     const fetchAgents = async () => {
       setLoading(true);
@@ -88,33 +89,73 @@ const Index = () => {
         {
           accessorKey: "createdAt",
           header: "Date Created",
-          valueFormatter: (params) => moment(params.value).format('YYYY-MM-DD'),
+          width: '15%',
+          cell: (params) => moment(params.value).format('YYYY-MM-DD'),
         },
+        // {
+        //   accessorKey: "account_status",
+        //   header: "Status",
+        //   cell: ({ value }) => (
+        //     <div
+        //       className={`status-cell ${
+        //         value === "approved" ? "bg-green-500" : "bg-orange-500"
+        //       } text-white p-2 rounded`}
+        //     >
+        //       {value}
+        //     </div>
+        //   ),
+        // },
+        
+        // {
+        //   accessorKey: "account_status",
+        //   header: "Status",
+        //   cell: ({ row }) => {
+        //     return (
+        //       <>
+        //         {row?.original?.account_status === 'approved' ? (
+        //           <span className="text-green-800 bg-green-100 rounded-lg p-2">Verified</span>
+        //         ) : (
+        //           <span className="text-amber-800 bg-amber-50 rounded-lg p-5">Pending</span>
+        //         )}
+        //       </>
+        //     );
+        //   },
+        // },
         {
           accessorKey: "account_status",
           header: "Status",
-          cellRenderer: ({ value }) => (
-            <div
-              className={`status-cell ${
-                value === "approved" ? "bg-green-500" : "bg-orange-500"
-              } text-white p-2 rounded`}
-            >
-              {value}
-            </div>
-          ),
+          cell: ({ row }) => {
+            const accountStatus = row.original.account_status;
+            return (
+              <div className="flex items-center">
+                <span
+                  className={`dot ${
+                    accountStatus === 'approved' ? 'bg-green-500' : 'bg-amber-500'
+                  }`}
+                ></span>
+                <span className="ml-2">
+                  {accountStatus === 'approved' ? 'Verified' : 'Pending'}
+                </span>
+              </div>
+            );
+          },
         },
+        
+     
         {
-          accessorKey: "actions",
-          header: "Actions",
-          cellRenderer: ({ row }) => (
-            <div className="flex items-center space-x-2">
-              <FaTrash
-                className="cursor-pointer text-red-600 hover:text-red-800"
-                onClick={() => HandleDeleteItem(row._id)}
-              />
-            </div>
-          ),
+          accessorKey: "action",
+          header: () => <div className="text-right">Action</div>,
+          cell: ({ row }) => {
+         
+            return <div className="flex items-center justify-center space-x-2">
+                 <FaTrash
+                   className="cursor-pointer text-red-600 hover:text-red-800"
+                   onClick={() => HandleDeleteItem(row._id)}
+                  />
+                  </div>
+          },
         },
+
       ] 
 
    // Add a serial number field to each entry
@@ -136,14 +177,14 @@ const dataWithSerialNumbers = agents.map((entry, index) => ({
       ) : (
         <section className="bg-[#ebeefd] h-full fixed w-full overflow-auto">
           <div className="container body-content">
-            <p className="admin-header-text ">See all Agents</p>
+            {/* <p className="admin-header-text ">See all Agents</p> */}
 
             {agents.length === 0 ? (
               <div className="fixed h-screen w-screen top-0 left-0 flex items-center justify-center text-4xl font-bold capitalize">
                 no available agent
               </div>
             ) : (
-              <div className="see-all-div">
+              <div>
                 {/* <AgentList
                   Agentdata={agents}
                   onDelete={(id) => {
@@ -151,12 +192,13 @@ const dataWithSerialNumbers = agents.map((entry, index) => ({
                   }}
                   key={agents.length}
                 /> */}
-                <div className="container mx-auto py-10">
-    <SearchBar />
-   <DataTable columns={columns} data={dataWithSerialNumbers}/>
-   <Pagination/>
-
-   </div>
+                <Container title="Agents" subTitle="List of all agents">
+                <div className="mx-auto bg-white rounded-md px-3">
+                 <SearchBar />
+                 <DataTable columns={columns} data={dataWithSerialNumbers}/>
+                <Pagination/>
+                </div>
+                </Container>
               </div>
             )}
           </div>
